@@ -19,4 +19,24 @@ function largestPalindrome($digit){
     }
 }
 
+function isPalindromic($num){
+    $digit = getNumDigit($num);
+    $numPerDigit = array();
+    $numPerDigit = getPerDigit($num, $digit);
+}
+
+function getNumDigit($num){
+    return strlen(strval($num));    
+}
+
+function getPerDigit($num, $digit){
+    $arr = array();
+    for($i=0; $i<$digit; $i++){
+        $arr[$i] = floor($num/(pow(10, $digit-$i-1)));
+        $num = $num-$arr[$i]*(pow(10, $digit-$i-1));
+    }
+    return $arr;
+}
+
+var_dump(getPerDigit(123, 3));
 ?>
